@@ -10,11 +10,7 @@ function App() {
   const [resultmessage, setResultMessage] = useState("");
   const handleChange = (event) => {
     const { name, value } = event.target;
-    if (name === "num1") {
-      setNum1(parseInt(value));
-    } else if (name === "num2") {
-      setNum2(parseInt(value));
-    }
+    name === "num1" ? setNum1(value) : setNum2(value);
   };
   // console.log(num1, num2);
 
@@ -28,7 +24,7 @@ function App() {
 
       return false;
     } else if (isNaN(num1) || isNaN(num2)) {
-      setErrorMessage("inputs must be numbers");
+      setErrorMessage("Error: Invalid inputs");
 
       return false;
     } else {
@@ -40,25 +36,25 @@ function App() {
   // validInputs();
   const handleAddition = () => {
     if (!validInputs()) return;
-    setResult(num1 + num2);
+    setResult(parseInt(num1) + parseInt(num2));
     setResultMessage("Result : ");
     setSuccessMessage("Success: Your result is shown above!");
   };
   const handleSubtraction = () => {
     if (!validInputs()) return;
-    setResult(num1 - num2);
+    setResult(parseInt(num1) - parseInt(num2));
     setResultMessage("Result : ");
     setSuccessMessage("Success: Your result is shown above!");
   };
   const handleMultiplication = () => {
     if (!validInputs()) return;
-    setResult(num1 * num2);
+    setResult(parseInt(num1) * parseInt(num2));
     setResultMessage("Result : ");
     setSuccessMessage("Success: Your result is shown above!");
   };
   const handlDivision = () => {
     if (!validInputs()) return;
-    setResult(num1 / num2);
+    setResult(parseInt(num1) / parseInt(num2));
     setResultMessage("Result : ");
     setSuccessMessage("Success: Your result is shown above!");
   };
@@ -99,5 +95,3 @@ function App() {
 }
 
 export default App;
-
-
